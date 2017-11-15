@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Koshi",
+    "\\Koshi\\Areas",
+    "\\Koshi\\Areas\\Admin",
+    "\\Koshi\\Areas\\Admin\\Controllers",
+    "\\Koshi\\DAL"
+  ],
+  "SelectedNode": "\\Koshi\\Areas\\Admin\\Controllers\\CategoriesController.cs",
+  "PreviewInSolutionExplorer": false
+}

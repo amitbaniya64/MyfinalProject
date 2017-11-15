@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Koshi.Models.CartProduct>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Your Cart </h2>
+<!--- table of the customer's cart-->
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Product.ProductName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Product.Price)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Quantity)
+		</th>
+		<th>
+			Total
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Product.ProductName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Product.Price)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Quantity)
+			</td>
+			<td>
+				@(item.Product.Price * item.Quantity)
+			</td>
+			<td>
+				@Html.ActionLink("Delete", "Delete", new { @id = item.CartProductID }, new { onclick = "return confirm('Are you sure you wish to delete this item?');" })
+			</td>
+		</tr>
+	}
+</table>
+
+@Html.ActionLink("Proceed to Checkout", "Index", "Checkout")

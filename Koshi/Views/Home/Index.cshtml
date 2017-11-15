@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Koshi.Models.Product>
+
+@{
+	ViewBag.Title = "Home";
+}
+
+<style type="text/css">
+	.home-image {
+		height: 250px;
+		background-position: center;
+		background-size: cover;
+	}
+</style>
+
+<h2><span style="color:darkblue;">Welcome to Koshi -  Online Shopping made easier</span></h2>
+<div class="row">
+	@foreach (var item in Model)
+	{
+		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			<div>
+				<img class="img-responsive home-image" src="~/Content/images/@item.ProductImage" /> <!--adding foreach loop in the model showing list of product and images in grid-->
+			</div>
+			Product Name: @item.ProductName
+			<br />
+			Product Description: @item.ProductDescription
+			<br />
+			Product Price: @item.Price
+			<br />
+			@Html.ActionLink("Details", "Details", new { id = item.ProductID })<!-- link to go details of product-->
+			<br />
+			<br />
+		</div>
+	}
+</div>

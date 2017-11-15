@@ -1,0 +1,41 @@
+﻿@model Koshi.ViewModels.AddToCart
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>@Model.Product.ProductName</h2>
+
+@using (Html.BeginForm("Create", "Cart", FormMethod.Post))
+{
+	@Html.HiddenFor(x => x.Product.ProductID)
+	@Html.HiddenFor(x => x.Product.ProductDescription)
+	<div class="row">
+		<div class="col-lg-6">
+
+			<img src="~/Content/images/@Model.Product.ProductImage" style="width:30em; height:30em;" />
+		</div>
+		<div class="col-lg-6">
+
+			@Model.Product.ProductDescription
+			<br />
+			Price: @Model.Product.Price.ToString("C")
+			<br />
+			<div>
+				<form class="form-horizontal" method="post">
+					<div>
+						<label><span>Number of quantity </span></label>
+
+						@Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+					</div>
+
+					<br />
+					<div>
+						<button type="submit" class="btn btn-primary btn-lg">Add to cart</button> <!-- add to cart button-->
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+}
